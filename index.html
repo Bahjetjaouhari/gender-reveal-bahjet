@@ -34,7 +34,7 @@
             z-index: -10;
         }
 
-        /* EMOJIS FLOTANTES (MANTENIDOS) */
+        /* EMOJIS FLOTANTES */
         .floater {
             position: fixed; font-size: 2.5rem; opacity: 0.6; z-index: -5;
             animation: floatUp 10s infinite linear;
@@ -71,7 +71,7 @@
         .info-item { display: flex; align-items: center; gap: 10px; color: #555; font-weight: 700; font-size: 0.95rem; text-align: left; }
         .info-icon { font-size: 1.5rem; width: 30px; text-align: center; }
 
-        /* --- VESTIMENTA (NUEVO DISEÑO "LINDO") --- */
+        /* --- VESTIMENTA --- */
         .dress-code-box {
             background: white; padding: 20px; border-radius: 25px;
             margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
@@ -85,15 +85,14 @@
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             transition: transform 0.2s;
         }
-        /* Colores exactos PASTEL */
         .card-blue { background: #eaf6ff; border: 2px solid #cce4ff; }
         .card-pink { background: #ffeaf2; border: 2px solid #ffcce0; }
         
         .clothes-icon { font-size: 2.2rem; margin-bottom: 8px; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1)); }
         
-        /* Colores exactos para la ropa */
-        .color-blue { color: #89CFF0; } /* Azul Bebé exacto */
-        .color-pink { color: #FFB7CE; } /* Rosa Bebé exacto */
+        /* Colores exactos */
+        .color-blue { color: #89CFF0; } 
+        .color-pink { color: #FFB7CE; } 
         
         .team-label { font-weight: bold; font-size: 0.9rem; color: #555; }
         .color-label { font-size: 0.75rem; opacity: 0.7; }
@@ -144,23 +143,22 @@
         </div>
 
         <div class="dress-code-box">
-            <div class="dress-title">👕 Código de Vestimenta</div>
+            <div class="dress-title"><i class="fas fa-hanger" style="color: #666; margin-right:5px;"></i> Código de Vestimenta</div>
             
             <div class="teams-wrapper">
                 <div class="team-card card-blue">
-                    <i class="fas fa-baby clothes-icon color-blue"></i>
+                    <i class="fas fa-tshirt clothes-icon color-blue"></i>
                     <span class="team-label">TEAM NIÑO</span>
                     <span class="color-label">Azul Bebé</span>
                 </div>
                 
                 <div class="team-card card-pink">
-                    <i class="fas fa-vest clothes-icon color-pink"></i>
+                    <i class="fas fa-vest-patches clothes-icon color-pink"></i>
                     <span class="team-label">TEAM NIÑA</span>
                     <span class="color-label">Rosa Bebé</span>
                 </div>
             </div>
-            <p style="font-size: 0.8rem; margin-top:15px; margin-bottom:0; color:#888;">Por favor venir de BLANCO 🤍</p>
-        </div>
+            </div>
 
         <div class="gift-section">
             <h3 style="margin:0 0 15px; color: #d4a373;">Mesa de Regalos</h3>
