@@ -34,22 +34,11 @@
             margin-top: 20px;
             position: relative; z-index: 10001; 
             transition: all 0.5s ease;
-            
-            /* ESTADO INICIAL: APAGADO (CARGANDO) */
-            opacity: 0.5;
-            transform: scale(0.95);
-            pointer-events: none; /* No deja hacer click aun */
-            filter: grayscale(100%);
+            opacity: 0.5; transform: scale(0.95); pointer-events: none; filter: grayscale(100%);
         }
-
-        /* ESTADO LISTO: ENCENDIDO */
         .pulse-btn.ready {
-            opacity: 1;
-            transform: scale(1);
-            pointer-events: auto; /* Ya deja hacer click */
-            filter: grayscale(0%);
-            cursor: pointer;
-            animation: pulse 1.5s infinite;
+            opacity: 1; transform: scale(1); pointer-events: auto; filter: grayscale(0%);
+            cursor: pointer; animation: pulse 1.5s infinite;
         }
 
         /* 2. FONDO */
@@ -96,15 +85,13 @@
         .info-item { display: flex; align-items: center; gap: 10px; color: #555; font-weight: 700; font-size: 0.95rem; text-align: left; }
         .info-icon { font-size: 1.5rem; width: 30px; text-align: center; }
 
-        /* --- VESTIMENTA --- */
+        /* VESTIMENTA */
         .dress-code-box {
             background: white; padding: 20px; border-radius: 25px;
             margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
         .dress-title { font-weight: bold; color: #444; margin-bottom: 15px; font-size: 1.1rem; }
-        
         .teams-wrapper { display: flex; gap: 15px; }
-        
         .team-card {
             flex: 1; padding: 15px 10px; border-radius: 20px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -112,15 +99,37 @@
         }
         .card-blue { background: #eaf6ff; border: 2px solid #cce4ff; }
         .card-pink { background: #ffeaf2; border: 2px solid #ffcce0; }
-        
         .clothes-icon { font-size: 2.2rem; margin-bottom: 8px; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1)); }
-        
-        /* Colores exactos */
         .color-blue { color: #89CFF0; } 
         .color-pink { color: #FFB7CE; } 
-        
         .team-label { font-weight: bold; font-size: 0.9rem; color: #555; }
         .color-label { font-size: 0.75rem; opacity: 0.7; }
+
+        /* SECCIÓN LIVE STREAM */
+        .live-section {
+            background: linear-gradient(135deg, #fff0f0 0%, #fff 100%);
+            border: 2px solid #ffdde1;
+            border-radius: 25px; padding: 20px; margin-top: 25px;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.05);
+        }
+        .live-btn {
+            display: block; width: 100%; padding: 12px; margin-top: 10px;
+            background: white; border: 1px solid #e1306c; border-radius: 50px;
+            color: #e1306c; font-weight: bold; text-decoration: none; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            transition: all 0.2s;
+        }
+        .live-btn:active { background: #e1306c; color: white; transform: scale(0.98); }
+        
+        /* BOTÓN DE RECORDATORIO */
+        .alarm-btn {
+            display: block; width: 100%; padding: 12px; margin-top: 10px;
+            background: #e1306c; border: none; border-radius: 50px;
+            color: white; font-weight: bold; font-size: 0.9rem; cursor: pointer;
+            box-shadow: 0 5px 10px rgba(225, 48, 108, 0.3);
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .alarm-btn:active { transform: scale(0.95); }
 
         /* REGALOS */
         .gift-section { background: rgba(255,255,255,0.8); border-radius: 25px; padding: 20px; margin-top: 25px; }
@@ -170,14 +179,13 @@
         <h1>Bahjet & Lara</h1>
 
         <div class="info-container">
-            <div class="info-item"><div class="info-icon">📅</div> 07 de Enero, 2026</div>
+            <div class="info-item"><div class="info-icon">📅</div> Domingo 11 de Enero, 2026</div>
             <div class="info-item"><div class="info-icon">🕑</div> 8:00 AM</div>
             <div class="info-item"><div class="info-icon">📍</div> Parque La Llovizna, Puerto Ordaz</div>
         </div>
 
         <div class="dress-code-box">
             <div class="dress-title"><i class="fas fa-hanger" style="color: #666; margin-right:5px;"></i> Código de Vestimenta</div>
-            
             <div class="teams-wrapper">
                 <div class="team-card card-blue">
                     <i class="fas fa-tshirt clothes-icon color-blue"></i>
@@ -202,6 +210,24 @@
             </div>
         </div>
 
+        <div class="live-section">
+            <h3 style="margin:0 0 10px; color: #e1306c;">🔴 Transmisión en VIVO</h3>
+            <p style="font-size:0.85rem; color:#555; margin-bottom:15px;">
+                Si no puedes venir, conéctate a las <b>9:30 AM</b>:
+            </p>
+            
+            <a href="https://instagram.com/bahjetjaouhari" target="_blank" class="live-btn">
+                <i class="fab fa-instagram"></i> @bahjetjaouhari
+            </a>
+            <a href="https://instagram.com/laranaim99" target="_blank" class="live-btn">
+                <i class="fab fa-instagram"></i> @laranaim99
+            </a>
+            
+            <button class="alarm-btn" onclick="addToCalendar()">
+                <i class="fas fa-bell"></i> Avísame cuando empiece
+            </button>
+        </div>
+
         <div class="vote-section">
             <h3 style="margin: 0; color: #555;">¿Qué será?</h3>
             <p style="font-size: 0.85rem; color: #444; margin-top:5px; font-weight: bold;">👇 Selecciona tu Team para confirmar tu asistencia en WhatsApp 👇</p>
@@ -215,23 +241,19 @@
     <script>
         var player;
         
-        // 1. Configuración de YouTube
+        // 1. YouTube API
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
                 height: '100%', width: '100%',
                 videoId: 'Uwc_sseWwjw',
                 playerVars: { 'autoplay': 0, 'controls': 0, 'loop': 1, 'playlist': 'Uwc_sseWwjw', 'playsinline': 1 },
-                events: {
-                    'onReady': onPlayerReady // DETECTA CUANDO ESTÁ LISTO
-                }
+                events: { 'onReady': onPlayerReady }
             });
         }
         
-        // 2. Cuando la música está lista, ENCIENDE el botón
         function onPlayerReady(event) {
             var btn = document.getElementById('enter-btn');
-            btn.classList.add('ready'); // Activa color y click
-            console.log("Música cargada. Botón activo.");
+            btn.classList.add('ready');
         }
 
         var tag = document.createElement('script');
@@ -254,11 +276,8 @@
         }
 
         function startExperience() {
-            // SOLO DEJA PASAR SI EL BOTÓN ESTÁ LISTO
             var btn = document.getElementById('enter-btn');
-            if (!btn.classList.contains('ready')) {
-                return; // Si no está listo, no hace nada (ignora el click)
-            }
+            if (!btn.classList.contains('ready')) return;
 
             if (player && typeof player.playVideo === 'function') {
                 player.setVolume(100);
@@ -273,6 +292,19 @@
 
         function throwGiftEmojis(emojiIcon) {
             confetti({ shapes: ['text'], scalar: 3, shapeOptions: { text: { value: [emojiIcon] } }, particleCount: 60, spread: 80, origin: { y: 0.7 }, gravity: 0.8 });
+        }
+        
+        // FUNCIÓN PARA AGREGAR AL CALENDARIO (Hora ajustada a 9:30 AM VET)
+        function addToCalendar() {
+            var title = "Gender Reveal Bahjet y Lara (LIVE)";
+            var details = "Ver transmisión en VIVO por Instagram @bahjetjaouhari y @laranaim99";
+            var location = "Instagram Live";
+            // Fecha: 11 Enero 2026. 9:30 AM Venezuela (-4) es 13:30 UTC
+            var dates = "20260111T133000Z/20260111T153000Z"; 
+            
+            var url = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(title) + "&dates=" + dates + "&details=" + encodeURIComponent(details) + "&location=" + encodeURIComponent(location);
+            
+            window.open(url, '_blank');
         }
 
         function vote(team) {
@@ -291,3 +323,4 @@
     </script>
 </body>
 </html>
+
