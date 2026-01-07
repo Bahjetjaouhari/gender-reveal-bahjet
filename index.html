@@ -26,7 +26,7 @@
         .intro-title { font-family: 'Great Vibes', cursive; font-size: 3.5rem; margin: 0; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
         .intro-text { color: white; font-size: 1.2rem; margin-bottom: 30px; font-weight: bold; }
         
-        /* BOTÓN INTELIGENTE */
+        /* BOTÓN INTELIGENTE (VER SORPRESA) */
         .pulse-btn { 
             background: white; color: #555; padding: 18px 50px; border-radius: 50px; 
             font-size: 1.2rem; font-weight: bold; border: none; 
@@ -121,13 +121,13 @@
         }
         .live-btn:active { background: #e1306c; color: white; transform: scale(0.98); }
         
-        /* BOTÓN DE RECORDATORIO */
+        /* BOTÓN DE RECORDATORIO (CORREGIDO: Ahora es un enlace 'a' real) */
         .alarm-btn {
-            display: block; width: 100%; padding: 12px; margin-top: 10px;
+            display: flex; width: 100%; padding: 12px; margin-top: 10px;
             background: #e1306c; border: none; border-radius: 50px;
             color: white; font-weight: bold; font-size: 0.9rem; cursor: pointer;
             box-shadow: 0 5px 10px rgba(225, 48, 108, 0.3);
-            display: flex; align-items: center; justify-content: center; gap: 8px;
+            text-decoration: none; align-items: center; justify-content: center; gap: 8px;
         }
         .alarm-btn:active { transform: scale(0.95); }
 
@@ -223,9 +223,10 @@
                 <i class="fab fa-instagram"></i> @laranaim99
             </a>
             
-            <button class="alarm-btn" onclick="addToCalendar()">
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Gender%20Reveal%20Bahjet%20y%20Lara%20(LIVE)&dates=20260111T133000Z/20260111T153000Z&details=Ver%20transmisi%C3%B3n%20en%20VIVO%20por%20Instagram%20%40bahjetjaouhari%20y%20%40laranaim99&location=Instagram%20Live" 
+               target="_blank" class="alarm-btn">
                 <i class="fas fa-bell"></i> Avísame cuando empiece
-            </button>
+            </a>
         </div>
 
         <div class="vote-section">
@@ -292,19 +293,6 @@
 
         function throwGiftEmojis(emojiIcon) {
             confetti({ shapes: ['text'], scalar: 3, shapeOptions: { text: { value: [emojiIcon] } }, particleCount: 60, spread: 80, origin: { y: 0.7 }, gravity: 0.8 });
-        }
-        
-        // FUNCIÓN PARA AGREGAR AL CALENDARIO (Hora ajustada a 9:30 AM VET)
-        function addToCalendar() {
-            var title = "Gender Reveal Bahjet y Lara (LIVE)";
-            var details = "Ver transmisión en VIVO por Instagram @bahjetjaouhari y @laranaim99";
-            var location = "Instagram Live";
-            // Fecha: 11 Enero 2026. 9:30 AM Venezuela (-4) es 13:30 UTC
-            var dates = "20260111T133000Z/20260111T153000Z"; 
-            
-            var url = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(title) + "&dates=" + dates + "&details=" + encodeURIComponent(details) + "&location=" + encodeURIComponent(location);
-            
-            window.open(url, '_blank');
         }
 
         function vote(team) {
