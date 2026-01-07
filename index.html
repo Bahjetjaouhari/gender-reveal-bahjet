@@ -121,7 +121,7 @@
         }
         .live-btn:active { background: #e1306c; color: white; transform: scale(0.98); }
         
-        /* BOTÓN DE RECORDATORIO (CORREGIDO: Ahora es un enlace 'a' real) */
+        /* BOTÓN DE RECORDATORIO (JAVASCRIPT) */
         .alarm-btn {
             display: flex; width: 100%; padding: 12px; margin-top: 10px;
             background: #e1306c; border: none; border-radius: 50px;
@@ -223,10 +223,9 @@
                 <i class="fab fa-instagram"></i> @laranaim99
             </a>
             
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Gender%20Reveal%20Bahjet%20y%20Lara%20(LIVE)&dates=20260111T133000Z/20260111T153000Z&details=Ver%20transmisi%C3%B3n%20en%20VIVO%20por%20Instagram%20%40bahjetjaouhari%20y%20%40laranaim99&location=Instagram%20Live" 
-               target="_blank" class="alarm-btn">
+            <button class="alarm-btn" onclick="downloadICS()">
                 <i class="fas fa-bell"></i> Avísame cuando empiece
-            </a>
+            </button>
         </div>
 
         <div class="vote-section">
@@ -294,6 +293,35 @@
         function throwGiftEmojis(emojiIcon) {
             confetti({ shapes: ['text'], scalar: 3, shapeOptions: { text: { value: [emojiIcon] } }, particleCount: 60, spread: 80, origin: { y: 0.7 }, gravity: 0.8 });
         }
+        
+        // --- FUNCIÓN PARA DESCARGAR CALENDARIO (.ICS) ---
+        // Esto funciona en iPhone/Android y ajusta la hora automáticamente
+        function downloadICS() {
+            var event = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'BEGIN:VEVENT',
+                'URL:https://instagram.com/bahjetjaouhari',
+                'DTSTART:20260111T133000Z', // 9:30 AM Venezuela (UTC-4)
+                'DTEND:20260111T153000Z',   // Duración aprox 2 horas
+                'SUMMARY:Gender Reveal Bahjet y Lara (LIVE)',
+                'DESCRIPTION:Ver transmisión en VIVO por Instagram @bahjetjaouhari y @laranaim99',
+                'LOCATION:Instagram Live',
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\n');
+
+            var blob = new Blob([event], {type: 'text/calendar;charset=utf-8'});
+            var url = URL.createObjectURL(blob);
+            
+            // Crear enlace invisible y darle click
+            var link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'gender_reveal.ics');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
 
         function vote(team) {
             var color = (team === 'boy') ? '#00f2fe' : '#ff9a9e';
@@ -311,4 +339,3 @@
     </script>
 </body>
 </html>
-
